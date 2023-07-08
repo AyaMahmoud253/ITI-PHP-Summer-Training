@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Untitled Jam</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 2px solid black;
+      padding: 5px;
+    }
+    
+    .name-cell {
+      width: 50px;
+      height: 80px;
+    }
+    fieldset {
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th colspan="2">Full Name</th>
+      <th colspan="2">Mobile</th>
+    </tr>
+    <tr>
+      <td rowspan="2" class="name-cell">
+        Aya
+      </td>
+      <td rowspan="2" class="name-cell">
+        Mahmoud
+      </td>
+      <td>011111111111</td>
+      
+    </tr>
+    <tr>
+      <td>022222222222</td>
+      
+    </tr>
+    <tr>
+        <td rowspan="2" class="name-cell">
+          Aya
+        </td>
+        <td rowspan="2" class="name-cell">
+          Mahmoud
+        </td>
+        <td>011111111111</td>
+        
+      </tr>
+      <tr>
+        <td>022222222222</td>
+        
+      </tr>
+  </table>
+  <br>
+  <h2>Iframes</h2>
+
+<div>
+    <h3>Location</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13815.487379611497!2d31.2511902!3d30.0405343!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7d6211c891%3A0xad7d1092373bae8b!2z2YXYqtit2YEg2KfZhNmB2YYg2KfZhNil2LPZhNin2YXZiiDYqNin2YTZgtin2YfYsdip!5e0!3m2!1sar!2seg!4v1688553431806!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  </div>  
+
+<div>
+  <h3>YouTube Video</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/rJesac0_Ftw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  <br>
+  <form action="#" method="GET">
+    <fieldset>
+        <legend>Personal Information</legend>
+        
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" ><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" ><br><br>
+        
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" ><br><br>
+      </fieldset>
+    
+    <fieldset>
+      <legend>Account Information</legend>
+      
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" ><br><br>
+      
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password"  ><br><br>
+    </fieldset>
+    
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

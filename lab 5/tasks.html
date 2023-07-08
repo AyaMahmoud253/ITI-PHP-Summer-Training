@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aya Mahmoud</title>
+  <style>
+    .blue {
+      color: blue;
+      font-weight: bold;
+    }
+    .red {
+      color: red;
+      font-weight: bold;
+    }
+    .green-label {
+      background-color: green;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .blue-label {
+      background-color: blue;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+  </style>
+  <script>
+    function performOperations() {
+      var numbers = [];
+      for (var i = 0; i < 3; i++) {
+        numbers.push(parseFloat(document.getElementById("number" + (i + 1)).value));
+      }
+      
+      // Perform mathematical operations
+      var sum = numbers[0] + numbers[1] + numbers[2];
+      var product = numbers[0] * numbers[1] * numbers[2];
+      var division = numbers[0] / numbers[1] / numbers[2];
+      
+      // Format the output
+      var output = "<span class='red'>Your input: </span>" + numbers[0] + ", " + numbers[1] + ", " + numbers[2] + "<br>";
+      output += "<span class='red'>Sum of </span>" + numbers[0] + " + " + numbers[1] + " + " + numbers[2] + " = " + sum.toFixed(2) + "<br>";
+      output += "<span class='red'>Multiplication of </span>" + numbers[0] + " * " + numbers[1] + " * " + numbers[2] + " = " + product.toFixed(2) + "<br>";
+      output += "<span class='red'>Division of </span>" + numbers[0] + " / " + numbers[1] + " / " + numbers[2] + " = " + division.toFixed(2) + "<br>";
+      
+      // Display the output
+      document.getElementById("result").innerHTML = output;
+    }
+    
+    function sortArray() {
+      var numbers = [];
+      for (var i = 0; i < 5; i++) {
+        numbers.push(parseFloat(document.getElementById("value" + (i + 1)).value));
+      }
+      
+      // Sort the array in descending and ascending orders
+      var descendingOrder = numbers.slice().sort(function(a, b) { return b - a; });
+      var ascendingOrder = numbers.slice().sort(function(a, b) { return a - b; });
+      
+      var output = "<span class='red'>Original Order: </span>" + numbers.join(", ") + "<br>";
+      output +="<span class='red'>Descending Order: </span>"  + descendingOrder.join(", ") + "<br>";
+      output +="<span class='red'>Ascending Order: </span>"  + ascendingOrder.join(", ") + "<br>";
+      
+      document.getElementById("result2").innerHTML = output;
+    }
+    function area()
+    {
+   
+       var radius = parseFloat(prompt("Enter the radius of the circle:"));
+
+       // Calculate the area of the circle
+       var area = Math.PI * radius * radius;
+
+
+       alert("The area of the circle is: " + area.toFixed(10));
+    }
+    function calculateSquareRoot() {
+
+      var value = parseFloat(prompt("Enter a value to calculate its square root:"));
+
+      // Calculate the square root
+      var squareRoot = Math.sqrt(value);
+
+      alert("The square root of the value "+value +" is : " + squareRoot.toFixed(2));
+    }
+    function calculateCosineValue() {
+      var angle = parseFloat(prompt("Enter an angle to calculate its cosine value:"));
+
+      var radians = (angle * Math.PI) / 180;
+
+      var cosine = Math.cos(radians);
+
+      document.getElementById("cosResult").innerHTML = "The cosine value of "+angle+" : " + cosine.toFixed(2);
+    }
+    function checkNumber() {
+      var number = parseInt(document.getElementById("inputNumber").value);
+      var output = document.getElementById("output");
+
+      if (number % 3 === 0 && number % 5 === 0) {
+        output.innerHTML = "<span class='red'>Fizz buzz</span>";
+      } else if (number % 3 === 0) {
+        output.innerHTML = "<span class='blue'>fizz</span>";
+      } else if (number % 5 === 0) {
+        output.innerHTML = "<span class='red'>buzz</span>";
+      } else {
+        output.innerHTML = "<span class='red'>none</span>";
+      }
+    }
+    function getRandomNames() {
+    var namesInput = document.getElementById("namesInput").value;
+    var namesArray = namesInput.split(","); // Split the input string into an array
+  
+    var arr1 = [];
+    for (var i = 0; i < namesArray.length; i++) {
+    arr1.push(namesArray[i].trim());
+   }
+  
+    var randomNames = [];
+  
+     var index1 = Math.floor(Math.random() * arr1.length);
+    var index2 = Math.floor(Math.random() * arr1.length);
+  
+    var name1 = arr1[index1];
+    var name2 = arr1[index2];
+  
+    randomNames.push(name1, name2);
+    document.getElementById("output2").innerHTML = randomNames.join(", ");
+}
+
+    function findLetterLocations() {
+      var sentence = document.getElementById("sentenceInput").value;
+      var letter = document.getElementById("letterInput").value;
+      
+      var locations = [];
+  
+      var lowerCaseSentence = sentence.toLowerCase();
+      var lowerCaseLetter = letter.toLowerCase();
+  
+      for (var i = 0; i < lowerCaseSentence.length; i++) {
+        if (lowerCaseSentence[i] === lowerCaseLetter) {
+          locations.push(i);
+        }
+      }
+  
+      document.getElementById("output3").innerHTML = locations.join(", ");
+    }
+  </script>
+</head>
+<body>
+  <h1>Mathematical Operations</h1>
+  
+  <label for="number1">Number 1:</label>
+  <input type="number" id="number1"><br>
+  
+  <label for="number2">Number 2:</label>
+  <input type="number" id="number2"><br>
+  
+  <label for="number3">Number 3:</label>
+  <input type="number" id="number3"><br>
+  
+  <button onclick="performOperations()">Perform Operations</button>
+  
+  <h2>Result:</h2>
+  <div id="result"></div>
+  
+  <h1>Sorting Numerical Values</h1>
+  
+  <label for="value1">Value 1:</label>
+  <input type="number" id="value1"><br>
+  
+  <label for="value2">Value 2:</label>
+  <input type="number" id="value2"><br>
+  
+  <label for="value3">Value 3:</label>
+  <input type="number" id="value3"><br>
+  
+  <label for="value4">Value 4:</label>
+  <input type="number" id="value4"><br>
+  
+  <label for="value5">Value 5:</label>
+  <input type="number" id="value5"><br>
+  
+  <button onclick="sortArray()">Sort Array</button>
+  
+  <h2>Result:</h2>
+  <div id="result2"></div>
+
+  <h1>Calculate Circle Area</h1>
+  <button onclick="area()">Calculate</button>
+
+  <h1>Calculate Square Root</h1>
+  <button onclick="calculateSquareRoot()">Calculate</button>
+  
+  <h1>Calculate Cosine Value</h1>
+  <button onclick="calculateCosineValue()">Calculate</button>
+  <h2>Result:</h2>
+  <div id="cosResult"></div>
+
+  <h1><span class='blue'>fizz Buzz</span> Game</h1>
+  <label for="inputNumber" class="green-label">Enter a number:</label>
+  <input type="number" id="inputNumber" class="blue"><br>
+  <br>
+  <button onclick="checkNumber()">Check</button>
+  <br><br>
+  <label id="outputLabel"  class="blue-label"> output</label>
+  <br><br>
+  <div id="output" ></div>
+  <br>
+  <h1><span class='blue'>Bottle</span> Game</h1>
+
+  <label for="namesInput" class="green-label">Enter names (separated by commas):</label>
+  <input type="text" id="namesInput"  class="blue"><br>
+  <br>
+  <button onclick="getRandomNames()">Get Random Names</button>
+  <br><br>
+  <label id="outputLabel"  class="blue-label"> output</label>
+  <br><br>
+  <div id="output2"></div>
+  <br><br>
+
+
+  <h1><span class='blue'>Character</span> Game</h1>
+
+  <label for="sentenceInput" class="green-label">Enter a sentence:</label>
+  <input type="text" id="sentenceInput"><br>
+  
+  <label for="letterInput" class="green-label">Enter a letter:</label>
+  <input type="text" id="letterInput"><br>
+  <br>
+  <button onclick="findLetterLocations()">Find Letter Locations</button>
+  <br><br>
+  <label id="outputLabel"  class="blue-label"> output</label>
+  <br><br>
+  <div id="output3"></div>
+  <br><br>
+</body>
+</html>
+</body>
+</html>

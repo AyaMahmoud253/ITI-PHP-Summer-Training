@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    
+  }
+  
+  /* Styling for the navigation bar */
+  nav {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+  }
+  
+  nav li {
+    margin-right: 5px; 
+    display: flex;
+    list-style: none;
+}
+
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    padding: 5px 40px; 
+    display: flex;
+    align-items: center;
+  }
+  
+ 
+  
+  nav a:hover {
+    color: rgb(112, 73, 164);
+  }
+  
+  /* Styling for the logo */
+  nav .logo img {
+    height: 40px; 
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image fills the circular shape */  }
+    .photo {
+        position: relative;
+        text-align: center; /* Center align the image */
+      }
+      
+      .photo img {
+        height: 500px; 
+        object-fit: cover;
+        display: inline-block; 
+        vertical-align: middle; /* Vertically align the image in the middle */
+        width: 100%;
+
+      }
+      
+      .photo p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        color: white;
+        font-size: 30px;
+        text-shadow: 1px 1px black;
+
+      }
+      .photo1 {
+        position: relative;
+      }
+      
+      .photo1 p {
+        position: absolute;
+        top: 50%;
+        left: 800px;
+        transform: translateY(-50%);/*is used to vertically move an element relative to itself*/
+        color: rgb(83, 52, 135);
+        font-size: 30px;
+        text-shadow: 1px 1px black;
+      }
+      
+      .photo1 img {
+        height: 500px;
+        object-fit: cover;
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+
+      }
+      .photo2 {
+        position: relative;
+      }
+      
+      .photo2 p {
+       position: absolute;
+       top: 50%;
+       left: 20px; /* Adjust the left value as needed */
+       transform: translateY(-50%);
+       right: 800px;
+       color: rgb(83, 52, 135);
+       font-size: 30px;
+       text-align: start;
+       text-shadow: 1px 1px black;
+      }
+      
+      .photo2 {
+        position: relative;
+        text-align: end;
+      }
+      
+      .photo2 img {
+        height: 500px;
+        object-fit: cover;
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+    }
+    .footer {
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .footer-title {
+        font-size: 16px;
+        color:black;
+      }
+      
+      .footer-title span {
+        font-weight: bold;
+      }
+      
+      .social-icons {
+        margin-top: 10px;
+      }
+      
+      .social-icons a {
+        display: inline-block;
+        margin: 0 5px;
+        color: #333;
+        font-size: 20px;
+      }
+      
+      .social-icons a:hover {
+        color: rgb(112, 73, 164);
+      }
+      
+
+      
+  
+  
