@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Table</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="userForm">
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+    
+    <button id="fetchButton">Fetch Data from Backend</button>
+    <button type="button" id="addButton">Add User Manually</button>
+    <button type="button" id="styles">Change Table Style (highlight)</button>
+    <button type="button" id="imageButton">Change Image Source</button>
+  </form>
+  
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <img id="myImage" src="image1.jpg" alt="Image">
+  
+  <script src="main.js"></script>
+</body>
+</html>

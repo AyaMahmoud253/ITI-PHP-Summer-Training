@@ -1,0 +1,15 @@
+table {
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 2px solid black;
+    padding: 5px;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  #myImage {
+    max-width: 40%;
+  }
+  
