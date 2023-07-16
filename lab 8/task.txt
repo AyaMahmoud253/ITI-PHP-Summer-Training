@@ -1,0 +1,133 @@
+Q1->insall->done
+-------------------------------------------------------------
+      {Q2->Create your mapped tables with their column}
+-- Create the student table
+CREATE TABLE student (
+  id INT PRIMARY KEY,
+  name VARCHAR(255),
+  email VARCHAR(255),
+  phone VARCHAR(20),
+  level_id INT,
+  FOREIGN KEY (level_id) REFERENCES level(id)
+);
+
+-- Create the level table
+CREATE TABLE level (
+  id INT PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+-- Create the subject table
+CREATE TABLE subject (
+  id INT PRIMARY KEY,
+  name VARCHAR(255),
+  sub_desc VARCHAR(255),
+  max_score INT
+);
+
+-- Create the exam table
+CREATE TABLE exam (
+  id INT PRIMARY KEY,
+  date DATE
+);
+
+-- Create the stu_subjects table
+CREATE TABLE stu_subjects (
+  stu_id INT,
+  sub_id INT,
+  FOREIGN KEY (stu_id) REFERENCES student(id),
+  FOREIGN KEY (sub_id) REFERENCES subject(id),
+  PRIMARY KEY (stu_id, sub_id)
+);
+
+-- Create the stu_grades table
+CREATE TABLE stu_grades (
+  stu_id INT,
+  sub_id INT,
+  exam_id INT,
+  grade INT,
+  FOREIGN KEY (stu_id) REFERENCES student(id),
+  FOREIGN KEY (sub_id) REFERENCES subject(id),
+  FOREIGN KEY (exam_id) REFERENCES exam(id),
+  PRIMARY KEY (stu_id, sub_id, exam_id)
+);
+---------------------------------------------------------------------------
+                                    {q3}
+
+a:Insert your classmates’ data (3 rows for each table)
+-- Insert data into the student table
+INSERT INTO student (id, name, email, phone, level_id)
+VALUES
+  (1, 'Aya Mahmoud', 'aya@example.com', '123456789', 1),
+  (2, 'Lamiaa Wael', 'lamiaa@example.com', '987654321', 2),
+  (3, 'Haneen Hossam', 'haneen@example.com', '555555555', 3);
+
+-- Insert data into the level table
+INSERT INTO level (id, name)
+VALUES
+  (1, 'Beginner'),
+  (2, 'Intermediate'),
+  (3, 'Advanced');
+
+-- Insert data into the subject table
+INSERT INTO subject (id, name, sub_desc, max_score)
+VALUES
+  (1, 'Mathematics', 'Advanced math', 100),
+  (2, 'Physics', 'Study of matter and energy', 90),
+  (3, 'English', 'Language and literature', 80);
+
+-- Insert data into the exam table
+INSERT INTO exam (id, date)
+VALUES
+  (1, '2022-12-10'),
+  (2, '2022-12-15'),
+  (3, '2022-12-20');
+
+-- Insert data into the stu_subjects table
+INSERT INTO stu_subjects (stu_id, sub_id)
+VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3);
+
+-- Insert data into the stu_grades table
+INSERT INTO stu_grades (stu_id, sub_id, exam_id, grade)
+VALUES
+  (1, 1, 1, 95),
+  (2, 2, 2, 88),
+  (3, 3, 3, 75);
+--------------------------------------------------------------------------------------------
+b:Add gender column for the student table. It holds two value (male or female).
+ALTER TABLE student
+ADD gender VARCHAR(10);
+-----------------------------------------------------------------------------------------------
+c:Add birth date column for the student table.
+ALTER TABLE student
+ADD birth_date DATE;
+----------------------------------------------------------------------------
+d:Add foreign key constrains in your tables with options on delete cascade.
+ALTER TABLE student
+ADD FOREIGN KEY (level_id) REFERENCES level(id) ON DELETE CASCADE;
+--------------------------------------------------------------------------
+e: Display students’ names that begin with A.
+SELECT name
+FROM student
+WHERE name LIKE 'A%';
+--------------------------------------------------------------------
+f: Display male students who are born before 1991-10-01.
+SELECT *
+FROM student
+WHERE gender = 'male' AND birth_date < '1991-10-01';
+--------------------------------------------------------------------
+g: Delete students their score is lower than 50.
+DELETE FROM stu_grades
+WHERE grade < 50;
+--------------------------------------------------------------------
+h: If you have a subject called ‘Database’ in your subjects table, write a query to get the student with 3rd max score of Database
+SELECT s.*
+FROM student s
+JOIN stu_grades sg ON s.id = sg.stu_id
+JOIN subject sub ON sg.sub_id = sub.id
+WHERE sub.name = 'Database'
+ORDER BY sg.grade DESC
+LIMIT 1 OFFSET 2;
