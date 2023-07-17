@@ -1,0 +1,44 @@
+1. Create a view to display the number of students grouped by name.
+
+CREATE VIEW student_count_view AS
+SELECT name, COUNT(*) AS student_count
+FROM student
+GROUP BY name;
+----------------------------------------------------------------------------
+2. Create a view for students’ names, their score and subject name.
+
+CREATE VIEW student_scores_view AS
+SELECT s.name, sg.grade, sub.name AS subject_name
+FROM student s
+JOIN stu_grades sg ON s.id = sg.stu_id
+JOIN subject sub ON sg.sub_id = sub.id;
+----------------------------------------------------------------------------
+3. Create index on student name column.
+
+CREATE INDEX idx_student_name ON student (name);
+----------------------------------------------------------------------------
+4. Display students whose phone number starts with 010.
+
+SELECT *
+FROM student
+WHERE phone LIKE '010%';
+-----------------------------------------------------------------------------
+5. Write a query to print details of students whose name ends with ‘d’ and contains six alphabets.
+
+SELECT *
+FROM student
+WHERE name LIKE '_____d';
+--------------------------------------------------------------------------------
+6. Write a query to display info about students who didn’t take any exam.
+
+SELECT *
+FROM student
+LEFT JOIN stu_grades ON student.id = stu_grades.stu_id
+WHERE stu_grades.stu_id IS NULL;
+---------------------------------------------------------------------------------
+7. Write a query to display name and age for each student
+
+SELECT name, YEAR(CURDATE()) - YEAR(birth_date) AS age
+FROM student;
+
+
