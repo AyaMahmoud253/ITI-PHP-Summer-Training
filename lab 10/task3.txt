@@ -1,0 +1,68 @@
+1.Display the date of exam as the following: day 'month name' year.
+
+SELECT DATE_FORMAT(date, '%e %M %Y') AS exam_date
+FROM exam;
+---------------------------------------------------------------------
+2.Display the name of students with the year of birthdate.
+
+SELECT CONCAT(name, ' (', YEAR(birth_date), ')') AS student_info
+FROM student;
+---------------------------------------------------------------------
+3.Create hello world function which takes a name and return welcome message for this name.
+
+DELIMITER //
+CREATE FUNCTION hello_world(name VARCHAR(255))
+RETURNS VARCHAR(255)
+DETERMINISTIC
+BEGIN
+  DECLARE welcome_msg VARCHAR(255);
+  SET welcome_msg = CONCAT('Welcome, ', name, '!');
+  RETURN welcome_msg;
+END//
+-----------------------------------------------------------------------
+4.Create multiply function which take two number and return themultiply of them.
+
+CREATE FUNCTION multiply(a INT, b INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+  DECLARE result INT;
+  SET result = a * b;
+  RETURN result;
+END//
+-----------------------------------------------------------------------
+5.Create function which takes student id and exam id and return the score for the student in this exam.
+
+DELIMITER //
+CREATE FUNCTION get_exam_score(student_id INT, exam_id INT)
+RETURNS INT
+BEGIN
+  DECLARE score INT;
+  SELECT grade INTO score
+  FROM stu_grades
+  WHERE stu_id = student_id AND exam_id = exam_id;
+  RETURN score;
+END //
+--------------------------------------------------------------------------------------------------------------
+6.Create Table called deleted_students which will hold the deletedstudents’ info (same columns as student table).
+
+CREATE TABLE deleted_students (
+  id INT PRIMARY KEY,
+  name VARCHAR(255),
+  email VARCHAR(255),
+  phone VARCHAR(20),
+  level_id INT,
+  gender VARCHAR(10),
+  birth_date DATE
+);
+--------------------------------------------------------------------------------------------------------------------
+7.Create trigger to save the deleted studentsfrom Student table todeleted_students.
+
+DELIMITER //
+CREATE TRIGGER save_deleted_students
+AFTER DELETE ON student
+FOR EACH ROW
+BEGIN
+  INSERT INTO deleted_students (id, name, email, phone, level_id, gender, birth_date)
+  VALUES (OLD.id, OLD.name, OLD.email, OLD.phone, OLD.level_id, OLD.gender, OLD.birth_date);
+END //
