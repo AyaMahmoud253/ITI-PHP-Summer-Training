@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration Form</title>
+</head>
+<body>
+    <h2>User Registration Form</h2>
+    <form action="index.php" method="post" onsubmit="return validateForm()">
+        <label for="firstname">First Name:</label>
+        <br>
+        <input type="text" id="firstname" name="firstname" required><br>
+
+        <label for="lastname">Last Name:</label>
+        <br>
+        <input type="text" id="lastname" name="lastname" required><br>
+
+        
+        <label>Address:</label>
+        <br>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+        <br>
+        <label for="country">Country:</label>
+        <br>
+        <select id="country" name="country" required>
+            <option value="" selected disabled>Select Country</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select><br>
+
+        <label>Gender:</label>
+        <br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br>
+
+        <label>Skills:</label>
+        <br>
+        <input type="checkbox" id="php" name="languages[]" value="PHP">
+        <label for="php">PHP</label>
+
+        <input type="checkbox" id="mysql" name="languages[]" value="MySQL">
+        <label for="mysql">MySQL</label>
+
+        <input type="checkbox" id="js" name="languages[]" value="JS">
+        <label for="js">JavaScript</label>
+
+        <input type="checkbox" id="java" name="languages[]" value="Java">
+        <label for="java">Java</label>
+        <br>
+
+        <label for="username">Username:</label>
+        <br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="department">Department:</label>
+        <br>
+        <input type="text" id="department" name="department" required><br>
+
+        <label for="securitycode">Enter the security code (#Aya_@):</label>
+        <br>
+        <input type="text" id="securitycode" name="securitycode" required><br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            // Get the value entered in the security code field
+            var enteredCode = document.getElementById("securitycode").value;
+            
+            // Define the expected security code pattern
+            var pattern = /^#Aya_@$/;
+
+            // Check if the entered code matches the pattern
+            if (!pattern.test(enteredCode)) {
+                alert("Invalid security code. Please enter the correct security code (#Aya_@).");
+                return false; // Prevent form submission if validation fails
+            }
+            return true; // Allow form submission if validation passes
+        }
+    </script>
+</body>
+</html>
